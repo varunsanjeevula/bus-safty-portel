@@ -70,16 +70,16 @@ export function BusQRCode({ busId, busTitle }: BusQRCodeProps) {
   };
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Bus QR Code</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col items-center gap-4">
-        <div className="bg-white p-6 rounded-lg shadow-md">
+      <CardContent className="flex flex-col items-center gap-6 pb-6">
+        <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200">
           <QRCodeSVG
             id="bus-qr-code"
             value={qrValue}
-            size={200}
+            size={240}
             level="H"
             includeMargin={true}
           />
@@ -94,7 +94,7 @@ export function BusQRCode({ busId, busTitle }: BusQRCodeProps) {
         </p>
 
         {/* URL Display */}
-        <div className="w-full bg-muted p-3 rounded-lg text-xs break-all text-center text-muted-foreground">
+        <div className="w-full bg-muted p-3 rounded-lg text-xs break-all text-center text-muted-foreground border border-border">
           {qrValue}
         </div>
 
@@ -103,9 +103,9 @@ export function BusQRCode({ busId, busTitle }: BusQRCodeProps) {
           <Button 
             onClick={downloadQRCode} 
             variant="default" 
-            className="w-full"
+            className="w-full text-base py-6"
           >
-            <Download className="h-4 w-4 mr-2" />
+            <Download className="h-5 w-5 mr-2" />
             Download QR Code
           </Button>
           
@@ -113,17 +113,17 @@ export function BusQRCode({ busId, busTitle }: BusQRCodeProps) {
             <Button 
               onClick={copyQRLink} 
               variant="outline"
-              className="w-full"
+              className="w-full py-5"
             >
               {copied ? (
                 <>
-                  <CheckCircle className="h-4 w-4 mr-2" />
-                  Copied!
+                  <CheckCircle className="h-4 w-4 mr-1" />
+                  <span className="hidden sm:inline">Copied!</span>
                 </>
               ) : (
                 <>
-                  <Copy className="h-4 w-4 mr-2" />
-                  Copy Link
+                  <Copy className="h-4 w-4 mr-1" />
+                  <span className="hidden sm:inline">Copy Link</span>
                 </>
               )}
             </Button>
@@ -131,11 +131,21 @@ export function BusQRCode({ busId, busTitle }: BusQRCodeProps) {
             <Button 
               onClick={openQRLink} 
               variant="outline"
-              className="w-full"
+              className="w-full py-5"
             >
               Open Link
             </Button>
           </div>
+        </div>
+
+        {/* Info Box */}
+        <div className="w-full bg-blue-50 dark:bg-blue-950 p-3 rounded-lg text-xs text-blue-900 dark:text-blue-200 border border-blue-200 dark:border-blue-800">
+          <p className="font-semibold mb-1">📱 How to use:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Download the QR code or Copy Link</li>
+            <li>Scan with any QR code reader</li>
+            <li>Opens bus details without login required</li>
+          </ul>
         </div>
       </CardContent>
     </Card>
