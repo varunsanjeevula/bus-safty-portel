@@ -11,7 +11,11 @@ import { ProfileHeader } from '@/components/ProfileHeader';
 import { useEffect, useState } from 'react';
 import { getBusStatus } from '@/lib/api';
 
-const BusDetails = () => {
+interface BusDetailsProps {
+  isPublic?: boolean;
+}
+
+const BusDetails = ({ isPublic = false }: BusDetailsProps) => {
   const { busId } = useParams<{ busId: string }>();
   const navigate = useNavigate();
   const [busTitle, setBusTitle] = useState<string>('');
@@ -37,9 +41,9 @@ const BusDetails = () => {
     return null;
   }
 
-  return (
+  const content = (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
-      <ProfileHeader />
+      {!isPublic && <ProfileHeader />}
       
       {/* Header */}
       <header className="bg-card shadow-sm border-b border-border sticky top-0 z-10">
@@ -112,6 +116,8 @@ const BusDetails = () => {
       </main>
     </div>
   );
+
+  return content;
 };
 
 export default BusDetails;

@@ -139,11 +139,7 @@ const App = () => {
             />
             <Route
               path="/bus-qr/:busId"
-              element={
-                <MainLayout>
-                  <BusDetails />
-                </MainLayout>
-              }
+              element={<BusDetails isPublic={true} />}
             />
             <Route
               path="/bus/:busId/tracking"
