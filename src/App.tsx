@@ -138,6 +138,14 @@ const App = () => {
               }
             />
             <Route
+              path="/bus-qr/:busId"
+              element={
+                <MainLayout>
+                  <BusDetails />
+                </MainLayout>
+              }
+            />
+            <Route
               path="/bus/:busId/tracking"
               element={
                 <ProtectedRoute session={session}>

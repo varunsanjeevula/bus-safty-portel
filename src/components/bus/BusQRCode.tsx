@@ -9,7 +9,7 @@ interface BusQRCodeProps {
 }
 
 export function BusQRCode({ busId, busTitle }: BusQRCodeProps) {
-  const qrValue = `${window.location.origin}/bus/${busId}`;
+  const qrValue = `${window.location.origin}/bus-qr/${busId}`;
 
   const downloadQRCode = () => {
     const svg = document.getElementById('bus-qr-code');
