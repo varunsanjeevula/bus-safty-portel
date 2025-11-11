@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1e6fcc" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Bus Safety" />
+    
+    <title>Bus Safety Tracker - Real-time Bus Safety Monitoring</title>
+    <meta name="description" content="Track passenger bus safety in real-time with QR code scanning. Monitor bus status, safety history, and report incidents instantly." />
+    <meta name="author" content="Bus Safety Team" />
+    <meta name="keywords" content="bus safety, passenger safety, QR code scanner, bus tracking, incident reporting" />
+
+    <meta property="og:title" content="Bus Safety Tracker" />
+    <meta property="og:description" content="Track passenger bus safety in real-time with QR code scanning" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bus Safety Tracker" />
+    <meta name="twitter:description" content="Track passenger bus safety in real-time" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- Google Maps API - Load with API key from environment -->
+    <script>
+      window.GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || 'AIzaSyDKQoS-XcfhLpDsl4SyJuMj4xt7s3PhuZU';
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKQoS-XcfhLpDsl4SyJuMj4xt7s3PhuZU&libraries=places,geometry"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
